@@ -24,7 +24,7 @@ class MainApp < Sinatra::Base
     from = (@page - 1) * PER_PAGE
     from = 0 if from < 0
     @results = []
-    unless @q.empty?
+    unless @q.nil?
       nico = NicoSearchSnapshot.new('page51')
       begin
         @results = nico.search(@q, search: ['tags_exact'], size: PER_PAGE, from: from, sort_by: sort_by, order: order)
