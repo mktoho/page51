@@ -1,0 +1,29 @@
+@charset charset;
+
+#results table {
+  border-collapse: collapse;
+}
+
+#results table tr th {
+  border: solid 1px silver;
+  padding: 0.2em;
+  background-color: FFCC99;
+}
+
+#results table tr td {
+  border: solid 1px gray;
+  font-size: 9pt;
+  padding: 0.2em;
+}
+
+#results table tr td.num {
+  text-align: right;
+}
+
+#results table tr td.alpha {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+
+input#query {
+  font-size: 2em;
+}

@@ -1,0 +1,62 @@
+h1 51ページ目以降を表示する
+p
+  |
+    ニコニコ動画のタグ検索結果を表示します。<br/>
+    本家は50ページ目（1,600件）までしか表示されませんので、それ以降を見るために作りました。1601件目以降を見たい時に使ってもらえたらうれしいです。<br/>
+    ニコニコ動画は1ページ32件ですが、こちらは1ページ100件になっています。<br/>
+    新着動画は結果に表示されません。いつ時点のデータなのかは、<a href="http://api.search.nicovideo.jp/api/snapshot/version" target="_blank">こちら</a>で確認してください。
+p 連絡先：<a href="https://twitter.com/mktoho">https://twitter.com/mktoho</a>
+
+hr
+
+#form
+form action="/" method="GET"
+  div
+    div
+      span タグ：
+      input#query name="q" value==@q
+    div
+      - if @prev >= 1
+        a href="/?q=#{@q}&page=#{@prev}&sort=#{@sort}" 前のページ
+      input name="page" value==@page
+      a href="/?q=#{@q}&page=#{@next}&sort=#{@sort}" 次のページ
+    div
+      select#sort name="sort"
+        option value="nd" コメントが新しい順
+        option value="vd" 再生数が多い順
+        option value="fd" 投稿日時が新しい順
+        option value="md" マイリスト数が多い順
+        option value="na" コメントが古い順
+        option value="va" 再生数が少ない順
+        option value="rd" コメント数が多い順
+        option value="ra" コメント数が少ない順
+        option value="ma" マイリスト数が少ない順
+        option value="fa" 投稿日時が古い順
+        option value="ld" 再生時間が長い順
+        option value="la" 再生時間が短い順
+  div
+    input type="submit" value="検索する"
+
+- unless @results.empty?
+
+  hr
+  
+  #results
+    p <b>#{@page}</b>ページめ
+    table
+      tr
+        th ID
+        th タイトル
+        th 投稿日
+        th 再生
+        th コメ
+        th マイリス
+      - for video in @results
+        tr
+          td.alpha =video.cmsid
+          td
+            a href="http://www.nicovideo.jp/watch/#{video.cmsid}" target="_blank" =video.title
+          td.alpha =video.start_time
+          td.num.alpha =video.view_counter
+          td.num.alpha =video.comment_counter
+          td.num.alpha =video.mylist_counter
