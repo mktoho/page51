@@ -27,7 +27,7 @@ class MainApp < Sinatra::Base
     @sort = 'nd' unless %w{nd vd fd md na va rd ra ma fa ld la}.include?(@sort)
     sort_by = SORT_MAP[@sort[0].to_sym]
     order = ORDER_MAP[@sort[1].to_sym]
-    search = SEARCH_MAP[@search]
+    search = SEARCH_MAP[@search.to_sym]
     @prev = @page - 1
     @next = @page + 1
     from = (@page - 1) * PER_PAGE

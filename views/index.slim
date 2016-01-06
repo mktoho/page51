@@ -17,7 +17,7 @@ form action="/" method="GET"
       input#query name="q" value==@q
       span を、
       select name="search"
-        option value="tg" selected タグが完全に一致するものを検索する
+        option value="tg" selected="selected" タグが完全に一致するものを検索する
         option value="zk" いい感じで検索する
         option value="tt" タイトルだけを検索する
         option value="td" タイトルと動画説明文を検索する
@@ -28,7 +28,7 @@ form action="/" method="GET"
       a href="/?q=#{@q}&page=#{@next}&sort=#{@sort}" 次のページ
     div
       select#sort name="sort"
-        option value="nd" selected コメントが新しい順
+        option value="nd" selected="selected" コメントが新しい順
         option value="vd" 再生数が多い順
         option value="fd" 投稿日時が新しい順
         option value="md" マイリスト数が多い順
