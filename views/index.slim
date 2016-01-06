@@ -23,9 +23,9 @@ form action="/" method="GET"
         option value="td" タイトルと動画説明文を検索する
     div
       - if @prev >= 1
-        a href="/?q=#{@q}&page=#{@prev}&sort=#{@sort}" 前のページ
+        a href="/?q=#{@q}&page=#{@prev}&sort=#{@sort}&search=#{@search}" 前のページ
       input name="page" value==@page
-      a href="/?q=#{@q}&page=#{@next}&sort=#{@sort}" 次のページ
+      a href="/?q=#{@q}&page=#{@next}&sort=#{@sort}&search=#{@search}" 次のページ
     div
       select#sort name="sort"
         option value="nd" selected="selected" コメントが新しい順
