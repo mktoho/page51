@@ -2,7 +2,9 @@ $(function(){
   // ソート順設定
   var val = getUrlVars();
   sort = val['sort'];
+  search = val['search'];
   $('#sort').val(sort);
+  $('#search').val(search);
   $('#query').focus(function(){this.select();});
 });
 
